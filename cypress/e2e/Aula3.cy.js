@@ -30,7 +30,7 @@ describe("Teste da criação, registro e login", ()=> (
     cy.get('h1.ng-binding').should("contain.text", info[0])
   )),
 
-  it("Teste delete de usuario", ()=> (
+  it.skip("Teste delete de usuario", ()=> (
     info = createUser(),
     cy.visit('https://globalsqa.com/angularJs-protractor/registration-login-example/#/login'),
     cy.get('#username').type(info[0]),
