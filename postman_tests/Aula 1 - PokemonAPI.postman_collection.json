@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "f224398c-3924-4a63-97d3-21d96e4855f4",
+		"name": "Aula 1 - PokemonAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34874449"
+	},
+	"item": [
+		{
+			"name": "Localiza Pokemon com Sucesso",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Não Localiza Pokemon (não existe)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "EndPoint falha localiza pokemon",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
