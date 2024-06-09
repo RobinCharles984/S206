@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "639550a1-1d66-4fee-a078-b4c5a1bf2571",
+		"name": "Lista de Exercícios - API Marvel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34874449"
+	},
+	"item": [
+		{
+			"name": "GetCommics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Testando se conectou com a API\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Procurando uma HQ na resposta da API\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Marvel Previews (2017)\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gateway.marvel.com/v1/public/comics?ts=1&apikey=0ef1f9ffb3bc9c4e469652fa867f5f55&hash=4ddfaa855039e0f6e570a29d602214c4",
+					"protocol": "http",
+					"host": [
+						"gateway",
+						"marvel",
+						"com"
+					],
+					"path": [
+						"v1",
+						"public",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "1",
+							"description": "Timestamp"
+						},
+						{
+							"key": "apikey",
+							"value": "0ef1f9ffb3bc9c4e469652fa867f5f55",
+							"description": "Public Key"
+						},
+						{
+							"key": "hash",
+							"value": "4ddfaa855039e0f6e570a29d602214c4",
+							"description": "Hask Key"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharacters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Testando se conectou na API\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Procurando um personagem existente na respota da API\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Adam Warlock\");\r",
+							"});\r",
+							"\r",
+							"//Procurando um NÃO personagem existente na respota da API\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Batman\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"offset\": 100,\r\n        \"limit\": 10,\r\n        \"count\": 10\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gateway.marvel.com/v1/public/characters?ts=1&apikey=0ef1f9ffb3bc9c4e469652fa867f5f55&hash=4ddfaa855039e0f6e570a29d602214c4",
+					"protocol": "http",
+					"host": [
+						"gateway",
+						"marvel",
+						"com"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "apikey",
+							"value": "0ef1f9ffb3bc9c4e469652fa867f5f55"
+						},
+						{
+							"key": "hash",
+							"value": "4ddfaa855039e0f6e570a29d602214c4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCreator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Testando se conectou na API\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Procurando um criador existente na resposta da API\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Brown\");\r",
+							"});\r",
+							"\r",
+							"//Procurando um criador NÃO existente na resposta da API\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Kirkman\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"limit\": 1000,\r\n        \"count\": 1000\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gateway.marvel.com/v1/public/creators?ts=1&apikey=0ef1f9ffb3bc9c4e469652fa867f5f55&hash=4ddfaa855039e0f6e570a29d602214c4",
+					"protocol": "http",
+					"host": [
+						"gateway",
+						"marvel",
+						"com"
+					],
+					"path": [
+						"v1",
+						"public",
+						"creators"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "apikey",
+							"value": "0ef1f9ffb3bc9c4e469652fa867f5f55"
+						},
+						{
+							"key": "hash",
+							"value": "4ddfaa855039e0f6e570a29d602214c4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
