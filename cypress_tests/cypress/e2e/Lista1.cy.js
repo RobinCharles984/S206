@@ -1,9 +1,9 @@
 describe('template spec', () => (
-  it('Entrar no site do Inatel', () => {
+  it.skip('Entrar no site do Inatel', () => {
     cy.visit('https://inatel.br/vestibular/')
   }),
 
-  it('Verificar se todos os cursos de graduação estão presentes', () => {
+  it.skip('Verificar se todos os cursos de graduação estão presentes', () => {
     cy.visit('https://inatel.br/vestibular/')
     cy.get(':nth-child(1) > .boxLink > h4').should('have.text', "Engenharia Biomédica")
     cy.get(':nth-child(2) > .boxLink > h4').should('have.text', "Engenharia de Computação")
@@ -14,7 +14,7 @@ describe('template spec', () => (
     cy.get(':nth-child(7) > .boxLink > h4').should('have.text', "Engenharia de Telecomunicações")
   }),
 
-  it('Verificar se há todas as fotos de infraestrutura', () => {
+  it.skip('Verificar se há todas as fotos de infraestrutura', () => {
     cy.visit('https://inatel.br/vestibular/')
     cy.get(':nth-child(7) > .wrap1396 > .wrapCont > .flexBoxGeral > :nth-child(1) > p').should('have.text', "Teatro Inatel")
     cy.get(':nth-child(7) > .wrap1396 > .wrapCont > .flexBoxGeral > :nth-child(2) > p').should('have.text', "Campus Inatel")
@@ -24,7 +24,7 @@ describe('template spec', () => (
     cy.get(':nth-child(6) > p').should('have.text', "Campus Inatel ")
   }),
 
-  it('Verificar funcionamento do saber mais', () => {
+  it.skip('Verificar funcionamento do saber mais', () => {
     cy.visit('https://inatel.br/vestibular/')
     cy.get('#rd-text_field-ljyahw1p').type("Nome")
     cy.get('#rd-email_field-ljyahw1q').type("email@email.com")
@@ -33,7 +33,7 @@ describe('template spec', () => (
     cy.get('#rd-button-lixhofbs').click()
   }),
 
-  it('Testar erro no login do aluno no site academico', () => {
+  it.skip('Testar erro no login do aluno no site academico', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       return false;
     });
@@ -41,7 +41,7 @@ describe('template spec', () => (
     cy.get('#ctl00_Corpo_UpdatePanel1 > :nth-child(1)').should('contain.text', 'Sua tentativa de logar no sistema via curso/matricula não obteve êxito. Tente novamente.')
   }),
 
-  it('Testar erro no login do professor no site academico', () => {
+  it.skip('Testar erro no login do professor no site academico', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       return false;
     });

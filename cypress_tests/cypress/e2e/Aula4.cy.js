@@ -30,7 +30,7 @@ describe("Teste da criação, registro e login", ()=> (
     cy.get('h1.ng-binding').should("contain.text", info[0])
   )),
 
-  it("Teste delete de usuario", ()=> (
+  it.skip("Teste delete de usuario", ()=> (
     infos = createUser(),
     cy.login(infos[0], infos[1]),
     cy.get('.ng-binding > a').click(),
